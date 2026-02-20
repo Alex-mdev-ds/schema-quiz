@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Maladaptive Schemas Questionnaire</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- INTRO -->
+  <div id="intro" class="screen active">
+    <div class="intro-grid">
+      <div class="intro-left">
+        <h1>Maladaptive Schemas Questionnaire</h1>
+        <button id="startBtn" class="primary-btn">START</button>
+      </div>
+
+      <div class="intro-right">
+        <p class="intro-text">
+          Click start button to begin the questionnaire.
+          You will rate each statement by how well it describes you.
+        </p>
+
+        <ul class="scale-legend">
+          <li><span>1</span> Completely untrue of me</li>
+          <li><span>2</span> Mostly untrue</li>
+          <li><span>3</span> Slightly more true than untrue</li>
+          <li><span>4</span> Moderately true</li>
+          <li><span>5</span> Mostly true</li>
+          <li><span>6</span> Describes me perfectly</li>
+        </ul>
+        <p class="keyboard-hint">
+  💡 You can use keys <b>1–6</b> to answer and <b>← →</b> arrows to navigate.
+</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz" class="screen">
+    <div class="top">
+      <div id="progressText"></div>
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="question-wrap">
+      <h2 id="questionText"></h2>
+
+      <div id="scale" class="scale"></div>
+
+      <div class="nav">
+        <button id="backBtn" class="secondary-btn">BACK</button>
+        <button id="nextBtn" class="primary-btn">NEXT</button>
+        <button id="debugResults" class="secondary-btn">
+  ⚡ Skip to results
+</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- RESULTS -->
+<div id="results" class="screen">
+  <div class="results-wrap">
+
+    <h1>Your Schema Profile</h1>
+
+    <canvas id="radarChart" width="400" height="400"></canvas>
+
+    <div id="schemaSummary"></div>
+
+    <div id="explanationText">
+      <div class="schema-descriptions">
+
+  <h2>Brief Overview of the 18 Early Maladaptive Schemas (Jeffrey Young)</h2>
+
+  <div class="schema-block">
+    <h3>1. Emotional Deprivation</h3>
+    <p>
+      Develops when emotional nurturing was insufficient. In adulthood, there is a persistent belief that one will not be understood, accepted, or emotionally responded to. A common inner background is: “No one really hears me.” People with this schema often gravitate toward emotionally cold or unavailable partners.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>2. Abandonment / Instability</h3>
+    <p>
+      A deep fear that close others will leave, lose interest, or withdraw love. Even minor mood changes in others may be perceived as signs of rejection. Anxious attachment and clinging behaviors are common. Relationships often feel fragile and unsafe, leading to self-suppression to preserve connection.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>3. Mistrust / Abuse</h3>
+    <p>
+      An expectation that others will hurt, humiliate, deceive, or exploit you. Characterized by heightened vigilance and difficulty relaxing in close relationships. There is often a tendency to “test” people before allowing emotional openness.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>4. Social Isolation / Alienation</h3>
+    <p>
+      A pervasive sense of being fundamentally different from others and not belonging to any group. Often accompanied by loneliness even when surrounded by people. There is a strong tendency toward unfavorable self-comparison and difficulty experiencing genuine inclusion.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>5. Defectiveness / Shame</h3>
+    <p>
+      A deep conviction that something is fundamentally wrong with oneself. There is fear that if others truly knew you, they would reject you. Heightened sensitivity to criticism and a tendency to hide perceived flaws are common.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>6. Failure / Incompetence</h3>
+    <p>
+      The belief that one is less capable than others and destined to fail. Past successes are minimized while mistakes are magnified. Often leads to avoidance of challenging goals and underestimation of one’s abilities.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>7. Dependence / Helplessness</h3>
+    <p>
+      A belief that one cannot handle everyday responsibilities without significant help from others. Decision-making feels overwhelming. There is often a search for strong “parent-like” figures to rely on.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>8. Vulnerability to Harm or Illness</h3>
+    <p>
+      Persistent expectation that catastrophe is imminent (illness, accidents, financial ruin). Marked by chronic anxiety and hypervigilance. The world is experienced as fundamentally unsafe.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>9. Enmeshment / Undeveloped Self</h3>
+    <p>
+      Excessive emotional involvement with significant others (often parents or partners). Personal identity may feel blurred. Difficulty recognizing one’s own needs, goals, and independent direction.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>10. Subjugation</h3>
+    <p>
+      Chronic surrender of one’s own needs and preferences to avoid conflict, rejection, or retaliation. Suppressed anger may accumulate internally. Assertiveness feels unsafe.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>11. Self-Sacrifice</h3>
+    <p>
+      Excessive focus on meeting others’ needs at the expense of one’s own wellbeing. Often accompanied by guilt when prioritizing oneself. Over time, personal resources become depleted.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>12. Emotional Inhibition</h3>
+    <p>
+      Suppression of spontaneous feelings and impulses to avoid disapproval or loss of control. Emotions are experienced internally but rarely expressed openly.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>13. Unrelenting Standards / Hypercriticalness</h3>
+    <p>
+      A relentless drive to meet very high internal standards. Harsh self-criticism for minor mistakes. Rest and pleasure may feel undeserved or unproductive. Often associated with chronic tension and burnout.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>14. Entitlement / Grandiosity</h3>
+    <p>
+      The belief that one deserves special privileges or exceptions. Difficulty respecting others’ boundaries. Frustration arises when expectations are not met.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>15. Insufficient Self-Control / Self-Discipline</h3>
+    <p>
+      Difficulty tolerating frustration, delaying gratification, or completing tasks. Impulsivity is common. There is often regret after impulsive actions but difficulty regulating behavior in advance.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>16. Approval Seeking</h3>
+    <p>
+      Self-worth is heavily dependent on others’ recognition and approval. Strong sensitivity to how one appears in others’ eyes. The internal compass of self-evaluation may feel weak.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>17. Negativity / Pessimism</h3>
+    <p>
+      A persistent focus on risks, problems, and potential negative outcomes. Positive experiences may be discounted or seen as temporary.
+    </p>
+  </div>
+
+  <div class="schema-block">
+    <h3>18. Punitiveness</h3>
+    <p>
+      The belief that mistakes deserve harsh punishment — toward oneself or others. Limited tolerance for human imperfection. Errors are experienced as moral failures rather than opportunities to learn.
+    </p>
+  </div>
+
+</div>
+    </div>
+
+    <button id="restartBtn" class="primary-btn">
+      Restart
+    </button>
+    <br>
+    <br>
+    <button id="shareBtn" class="secondary-btn">
+  Share Results
+</button>
+
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
