@@ -19,6 +19,7 @@ const SCHEMA_RANGES = [
   { name: "Punitiveness", start: 219, end: 232}
 ];
 
+
 const QUESTIONS =[
   { id: 1, text: "There has never been anyone in my life who truly understood and responded to my emotional needs." },
   { id: 2, text: "I did not receive enough love and attention." },
@@ -270,3 +271,4 @@ const QUESTIONS =[
   { id: 231, text: "I find it hard to accept excuses for poor behavior." },
   { id: 232, text: "I believe consequences should be severe when people act wrongly." }
 ];
+
