@@ -12,9 +12,6 @@ const questionText = document.getElementById("questionText");
 const scale = document.getElementById("scale");
 const progressText = document.getElementById("progressText");
 const progressFill = document.getElementById("progressFill");
-//debug button
-const debugBtn = document.getElementById("debugResults");
-
 const shareBtn = document.getElementById("shareBtn");
 
 startBtn.onclick = () => {
@@ -53,15 +50,7 @@ if (shareBtn) {
     }
   };
 }
-if (debugBtn) {
-  debugBtn.onclick = () => {
-    // fill unanswered with neutral value so math works
-    for (let i = 0; i < answers.length; i++) {
-      if (answers[i] == null) answers[i] = 3;
-    }
-    showResults();
-  }
-};
+
 
 
 function buildShareText() {
@@ -240,3 +229,4 @@ function renderScale() {
     scale.appendChild(btn);
   }
 }
+
